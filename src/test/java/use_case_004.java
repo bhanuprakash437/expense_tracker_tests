@@ -58,12 +58,10 @@ public class use_case_004 extends Base_Class {
         //click the List categories
         driver.findElement(By.xpath("//*[@id=\"go_list_categories\"]")).click();
 
-        driver.findElement(By.xpath("//*[@id=\"go_add_category\"]")).click();
 
+        ListCategoryPage listCategoryPage = new ListCategoryPage(driver);
+        driver = listCategoryPage.add_category(category_name);
 
-        driver.findElement(By.xpath("//*[@id=\"name\"]")).sendKeys(category_name);
-
-        driver.findElement(By.xpath("//*[@id=\"submit\"]")).click();
 
         WebElement table = driver.findElement(By.xpath("/html/body/div/table"));
         List <WebElement> tr_collection = table.findElements(By.tagName("tr"));

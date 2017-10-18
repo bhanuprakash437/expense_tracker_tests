@@ -94,6 +94,15 @@ public class Test_Suite {
 
         Assert.assertEquals(driver.getCurrentUrl(),"http://thawing-shelf-73260.herokuapp.com/listexpenses");
     }
+
+
+
+
+
+
+
+
+
     /**
      * helper method to close the browser after test cases are run.
      */

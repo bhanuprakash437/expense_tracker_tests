@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class use_case_001 {
+public class use_case_001 extends Base_Class{
     public static WebDriver driver;
 
 
@@ -15,18 +15,7 @@ public class use_case_001 {
     @Before
     public void setDriver()
     {
-        Browser_Provider browser_provider = new Browser_Provider();
-        driver = browser_provider.getChromeWebDriver();
-    }
-
-    /**
-     * This is a test case to load the site
-     */
-    @Test
-    public void loadSite()
-    {
-        driver.get(Global.TEST_SITE_URL);
-        Assert.assertEquals(driver.getTitle(),"Expense tracker");
+        super.setDriver();
     }
 
 
@@ -34,7 +23,12 @@ public class use_case_001 {
 
 
 
-    @Test
+
+
+
+
+//    @Test
+//    public void
 
 
 
@@ -43,7 +37,6 @@ public class use_case_001 {
     @After
     public void quitDriver()
     {
-        driver.close();
-        driver.quit();
+        super.quitDriver();
     }
 }

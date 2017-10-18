@@ -49,6 +49,10 @@ public class use_case_006 extends Base_Class {
         Assert.assertEquals(status,false);
     }
 
+
+    /**
+     * check the functionality vith login and the user must be able to access the functionalities.
+     */
     @Test
     public void check_functionality_with_login()
     {
