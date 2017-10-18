@@ -89,7 +89,7 @@ public class use_case_004 extends Base_Class {
      * We change the name of teh category. Sucess if the name is changed
      */
     @Test
-    public void modify_sinlge_category()
+    public void modify_single_category()
     {
         // we login into the site
         driver = this.login();
@@ -162,7 +162,6 @@ public class use_case_004 extends Base_Class {
     @Test
     public void delete_single_category_check_confirmation()
     {
-
         // we login into the site
         driver = this.login();
 

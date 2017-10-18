@@ -1,6 +1,10 @@
+import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -119,5 +123,118 @@ public class List_Expenses_Page {
         size = size + tr_collection.size();
 
         return size;
+    }
+
+    public boolean delete_an_expense() {
+
+        //we see the list of expenses:
+        WebElement table = driver.findElement(By.xpath("/html/body/div/table"));
+        List <WebElement> tr_collection = table.findElements(By.tagName("tr"));
+        List <WebElement> td_collection;
+
+
+        int no_of_categories = tr_collection.size()-1; // we exclude the header
+
+
+        // We want to delete the last entry
+        td_collection = tr_collection.get(no_of_categories).findElements(By.tagName("td"));
+
+
+        // we click on the delete icon
+        List <WebElement> anchor_tags = td_collection.get(4).findElements(By.tagName("a"));
+
+
+        anchor_tags.get(2).findElement(By.tagName("img")).click();
+
+        WebDriverWait wait = new WebDriverWait(driver, Global.WAIT_TIME);
+        wait.until(ExpectedConditions.alertIsPresent());
+
+        Alert alert = driver.switchTo().alert();
+
+        //accept delete in alert box
+        alert.accept();
+
+        //we see the list of categories:
+        WebElement table_new = driver.findElement(By.xpath("/html/body/div/table"));
+        List <WebElement> tr_collection_new = table_new.findElements(By.tagName("tr"));
+
+        int no_of_rows_after_delete = tr_collection_new.size() -1 ; //exclude the header
+
+        boolean status = false;
+
+        if (no_of_rows_after_delete == (no_of_categories -1))
+        {
+            status = true;
+        }
+
+        return status;
+
+    }
+
+
+    /**
+     * We modifiy only the reasons
+     * @return
+     */
+    public boolean modify_expense() {
+
+        //we see the list of expenses:
+        WebElement table = driver.findElement(By.xpath("/html/body/div/table"));
+        List <WebElement> tr_collection = table.findElements(By.tagName("tr"));
+        List <WebElement> td_collection;
+
+
+        int no_of_categories = tr_collection.size()-1; // we exclude the header
+
+
+        // We want to edit the last entry
+        td_collection = tr_collection.get(no_of_categories).findElements(By.tagName("td"));
+
+
+        // we click on the delete icon
+        List <WebElement> anchor_tags = td_collection.get(4).findElements(By.tagName("a"));
+
+
+        anchor_tags.get(0).findElement(By.tagName("img")).click();
+
+        EditExpensePage editExpensePage = new EditExpensePage(driver);
+
+        // get  day , month and year from the string
+        int day = Integer.parseInt(Global.EXPENSE_ADD_DATE.split("\\.")[0]);
+        int month = Integer.parseInt(Global.EXPENSE_ADD_DATE.split("\\.")[1]);
+        int year = Integer.parseInt(Global.EXPENSE_ADD_DATE.split("\\.")[2]);
+
+        int amount =  Global.AMOUNT;
+
+        driver = editExpensePage.edit_expense(day+3,month+2,year,Global.CATEGORY_NAME,amount, "Pizza");
+
+
+        //we now check if the data edited is saved or not
+
+
+
+        WebElement table_new = driver.findElement(By.xpath("/html/body/div/table"));
+        List <WebElement> tr_collection_new = table_new.findElements(By.tagName("tr"));
+        List <WebElement> td_collection_new;
+
+        int no_of_categories_new = tr_collection.size()-1; // we exclude the header
+
+        td_collection_new = tr_collection_new.get(no_of_categories).findElements(By.tagName("td"));
+
+        //FIXME : include other validation as well which are commented below
+        //String modified_date = td_collection.get(0).getText();
+        //String modifie_category = td_collection.get(1).getText();
+        //String modifie_Amount = td_collection.get(2).getText();
+
+        String modifie_Reason = td_collection_new.get(3).getText();
+
+        boolean status = false;
+
+        if (modifie_Reason.equals("Pizza"))
+        {
+            status = true;
+        }
+
+        return status;
     }
 }
