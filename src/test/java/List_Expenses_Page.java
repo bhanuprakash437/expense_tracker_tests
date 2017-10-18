@@ -42,6 +42,11 @@ public class List_Expenses_Page {
         driver.findElement(By.xpath("//*[@id=\"go_add_expense\"]")).click();
     }
 
+    public void click_show_statistics_link()
+    {
+        driver.findElement(By.xpath("//*[@id=\"go_show_statistics\"]")).click();
+    }
+
 
     /**
      * @ FIXME To be removed

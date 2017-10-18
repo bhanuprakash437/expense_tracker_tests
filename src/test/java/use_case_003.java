@@ -37,7 +37,6 @@ public class use_case_003 extends Base_Class {
     @Test
     public void modify_expense(){
         HomePage homePage = new HomePage(driver);
-
         driver = homePage.login();
 
         List_Expenses_Page list_expenses_page = new List_Expenses_Page(driver);

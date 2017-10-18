@@ -18,6 +18,7 @@ public class HomePage {
      * @return
      */
     public  WebDriver loadSite(){
+        System.out.println(Global.TEST_SITE_URL);
 
         driver.get(Global.TEST_SITE_URL);
         return driver;

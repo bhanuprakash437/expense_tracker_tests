@@ -18,20 +18,7 @@ public class use_case_001 extends Base_Class{
         super.setDriver();
     }
 
-
-
-
-
-
-
-
-
-
-//    @Test
-//    public void
-
-
-
+    // THE TESTS ARE INCLUDED IN OTHER USECASES
 
 
     @After

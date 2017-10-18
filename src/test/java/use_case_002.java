@@ -1,4 +1,4 @@
-import com.sun.jna.platform.win32.GL;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -25,7 +25,6 @@ public class use_case_002 extends Base_Class {
     public void addExpense()
     {
         HomePage homePage = new HomePage(driver);
-
 
         driver = homePage.login();
 
