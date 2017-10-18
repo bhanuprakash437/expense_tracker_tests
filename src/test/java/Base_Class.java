@@ -18,12 +18,17 @@ public class Base_Class {
         driver = browser_provider.getChromeWebDriver();
     }
 
+    public  WebDriver loadSite(){
+        driver.get(Global.TEST_SITE_URL);
+        return driver;
+    }
+
 
     /**
      * this is a helper method which performs the login
      */
     public WebDriver login(){
-        driver.get(Global.TEST_SITE_URL);
+        driver = this.loadSite();
 
         driver.findElement(By.xpath("//*[@id=\"login\"]")).sendKeys(Global.ACTUAL_UNAME);
 
@@ -59,6 +64,22 @@ public class Base_Class {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+
+    /**
+     * helper class to check if string contains a part of the given compare string!
+     * @param driver
+     * @param compare_string
+     * @return boolean value
+     */
+    public  boolean check_strings(WebDriver driver,String compare_string)
+    {
+        if (driver.getCurrentUrl().contains(compare_string))
+        {
+             return true;
+        }
+        return false;
     }
 
 
