@@ -1,7 +1,7 @@
 Expense Tracker - Automated Tests
 
 
-This project includes the automated testcase for the project - Expense Tracker
+This project includes the automated testcases for the Expense tracker project as per the user specifications provided 
 
 
 For windows machine :
