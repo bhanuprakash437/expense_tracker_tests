@@ -57,4 +57,9 @@ public class use_case_007 extends Base_Class{
 
         Assert.assertEquals(status,false);
     }
+    @After
+    public void quitDriver()
+    {
+        super.quitDriver();
+    }
 }
