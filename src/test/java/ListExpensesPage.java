@@ -8,14 +8,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class List_Expenses_Page {
+public class ListExpensesPage {
     public WebDriver driver ;
 
     /**
      * Constructor initializes the driver
      * @param driver
      */
-    public List_Expenses_Page(WebDriver driver)
+    public ListExpensesPage(WebDriver driver)
     {
         this.driver = driver;
     }
@@ -47,6 +47,11 @@ public class List_Expenses_Page {
         driver.findElement(By.xpath("//*[@id=\"go_show_statistics\"]")).click();
     }
 
+    public String get_username()
+    {
+        return driver.findElement(By.xpath("//*[@id=\"editaccount\"]")).getText();
+    }
+
 
     /**
      * @ FIXME To be removed
@@ -66,29 +71,29 @@ public class List_Expenses_Page {
 
         for (WebElement tr:tr_collection) {
 
-             td_collection = tr.findElements(By.tagName("td"));
+            td_collection = tr.findElements(By.tagName("td"));
 
-             System.out.println(td_collection.size());
-             //System.out.println(td_collection.get(0).getText());
+            System.out.println(td_collection.size());
+            //System.out.println(td_collection.get(0).getText());
             System.out.println(td_collection.get(0).getText());
             System.out.println(td_collection.get(1).getText());
             System.out.println(td_collection.get(2).getText());
             System.out.println(td_collection.get(3).getText());
             System.out.println("____________");
-             if(td_collection.get(0).getText().equalsIgnoreCase(date))
-             {
-                 if (td_collection.get(1).getText().equalsIgnoreCase(category))
-                 {
-                     if(Integer.toString(amount).equals(td_collection.get(2).getText()));
-                     {
-                         if(td_collection.get(3).getText().contains(reason))
-                         {
-                             status = true;
-                             break;
-                         }
-                     }
-                 }
-             }
+            if(td_collection.get(0).getText().equalsIgnoreCase(date))
+            {
+                if (td_collection.get(1).getText().equalsIgnoreCase(category))
+                {
+                    if(Integer.toString(amount).equals(td_collection.get(2).getText()));
+                    {
+                        if(td_collection.get(3).getText().contains(reason))
+                        {
+                            status = true;
+                            break;
+                        }
+                    }
+                }
+            }
 
             System.out.println(status);
 

@@ -23,7 +23,7 @@ public class use_case_005 extends  Base_Class {
 
         driver = this.login();
 
-        List_Expenses_Page list_expenses_page = new List_Expenses_Page(driver);
+        ListExpensesPage list_expenses_page = new ListExpensesPage(driver);
 
         list_expenses_page.click_show_statistics_link();
 
@@ -41,7 +41,7 @@ public class use_case_005 extends  Base_Class {
 
         driver = this.login();
 
-        List_Expenses_Page list_expenses_page = new List_Expenses_Page(driver);
+        ListExpensesPage list_expenses_page = new ListExpensesPage(driver);
 
         list_expenses_page.click_show_statistics_link();
 
@@ -58,7 +58,7 @@ public class use_case_005 extends  Base_Class {
 
         driver = this.login();
 
-        List_Expenses_Page list_expenses_page = new List_Expenses_Page(driver);
+        ListExpensesPage list_expenses_page = new ListExpensesPage(driver);
 
         list_expenses_page.click_show_statistics_link();
 

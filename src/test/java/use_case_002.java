@@ -28,7 +28,7 @@ public class use_case_002 extends Base_Class {
 
         driver = homePage.login();
 
-        List_Expenses_Page list_expenses_page = new List_Expenses_Page(driver);
+        ListExpensesPage list_expenses_page = new ListExpensesPage(driver);
         int list_size = list_expenses_page.getListSize();
 
         list_expenses_page.click_add_expense_link();
@@ -48,7 +48,7 @@ public class use_case_002 extends Base_Class {
 
         this.include_delay();
 
-        List_Expenses_Page list_expenses_page1 =  new List_Expenses_Page(driver);
+        ListExpensesPage list_expenses_page1 =  new ListExpensesPage(driver);
 
         int list_size_after_add = list_expenses_page1.getListSize();
 

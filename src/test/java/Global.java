@@ -18,6 +18,14 @@ public class Global {
     public static String TEST_SITE_URL = "http://thawing-shelf-73260.herokuapp.com/index.jsp";
 
 
+    //Register new user
+    public static String USERNAME = "RajM";
+    public static String PASSWORD = "bhanu";
+    public static String WRONGPASSWORD = "bhanu12321**";
+
+    public static String NEW_USERNAME = "Optimus";
+
+
     //User Data
     public static  String ACTUAL_UNAME = "RajM";
     public static  String ACTUAL_PASSWORD = "bhanu";

@@ -25,7 +25,7 @@ public class use_case_003 extends Base_Class {
 
         driver = homePage.login();
 
-        List_Expenses_Page list_expenses_page = new List_Expenses_Page(driver);
+        ListExpensesPage list_expenses_page = new ListExpensesPage(driver);
         boolean  status = list_expenses_page.delete_an_expense();
 
         Assert.assertEquals(status,true);
@@ -39,7 +39,7 @@ public class use_case_003 extends Base_Class {
         HomePage homePage = new HomePage(driver);
         driver = homePage.login();
 
-        List_Expenses_Page list_expenses_page = new List_Expenses_Page(driver);
+        ListExpensesPage list_expenses_page = new ListExpensesPage(driver);
         boolean  status = list_expenses_page.modify_expense();
 
         Assert.assertEquals(status,true);
